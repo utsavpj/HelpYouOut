@@ -1,24 +1,26 @@
 package com.example.helpyouout;
 
-import androidx.appcompat.app.AppCompatActivity;
+import android.view.animation.Animation;
+
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
-import android.animation.Animator;
-import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-
+import com.example.helpyouout.main.BaseActivity;
+import com.example.helpyouout.main.Fragment.ChatBotFragment;
+import com.example.helpyouout.main.Fragment.HomeFragment;
+import com.example.helpyouout.main.Fragment.MeditationFragment;
+import com.example.helpyouout.main.Fragment.MentalHealthListFragment;
+import com.example.helpyouout.main.Fragment.ScoreCardFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class home extends AppCompatActivity {
+public class HomeActivity extends BaseActivity {
 
     SNavigationDrawer sNavigationDrawer;
     Class fragmentClass;
@@ -27,12 +29,13 @@ public class home extends AppCompatActivity {
     private FloatingActionButton fab, editProfileFab, feedbackFab, logoutFab;
     private Animation fab_close, fab_open, rotate_backward, rotate_forward;
 
+    @Override
+    public int setContentView() {
+        return R.layout.activity_home;
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
-
+    public void init() {
         sNavigationDrawer = findViewById(R.id.navigationDrawer);
         List<MenuItem> menuItems = new ArrayList<>();
 
@@ -137,7 +140,18 @@ public class home extends AppCompatActivity {
             }
         });
 
+    }
 
-    }}
+    @Override
+    public void buttonClicks() {
+
+    }
+
+    @NotNull
+    @Override
+    public String getLoggerTag() {
+        return "HomeActivity";
+    }
+}
 
 

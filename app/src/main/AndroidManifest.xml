@@ -8,13 +8,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:name="com.example.ApplicationClass"
         android:theme="@style/AppTheme">
-        <activity android:name=".Breathe"></activity>
-        <activity android:name=".signin2" />
-        <activity android:name=".home" />
-        <activity android:name=".signIn" />
-        <activity android:name=".logIn" />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".Breathe"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".signin2"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".HomeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".signIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".logIn"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

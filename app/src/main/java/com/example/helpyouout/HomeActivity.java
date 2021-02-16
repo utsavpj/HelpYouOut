@@ -1,17 +1,18 @@
 package com.example.helpyouout;
 
+import android.view.View;
 import android.view.animation.Animation;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import com.example.helpyouout.databinding.ActivityHomeBinding;
 import com.example.helpyouout.main.BaseActivity;
 import com.example.helpyouout.main.Fragment.ChatBotFragment;
 import com.example.helpyouout.main.Fragment.HomeFragment;
 import com.example.helpyouout.main.Fragment.MeditationFragment;
 import com.example.helpyouout.main.Fragment.MentalHealthListFragment;
 import com.example.helpyouout.main.Fragment.ScoreCardFragment;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.shrikanthravi.customnavigationdrawer2.data.MenuItem;
 import com.shrikanthravi.customnavigationdrawer2.widget.SNavigationDrawer;
 
@@ -22,21 +23,24 @@ import java.util.List;
 
 public class HomeActivity extends BaseActivity {
 
-    SNavigationDrawer sNavigationDrawer;
     Class fragmentClass;
     public static Fragment fragment;
     private boolean isFabOpen = false;
-    private FloatingActionButton fab, editProfileFab, feedbackFab, logoutFab;
+//    private FloatingActionButton fab, editProfileFab, feedbackFab, logoutFab;
     private Animation fab_close, fab_open, rotate_backward, rotate_forward;
 
+
+    ActivityHomeBinding binding;
+
+    @NotNull
     @Override
-    public int setContentView() {
-        return R.layout.activity_home;
+    public View setContentView() {
+        binding = ActivityHomeBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void init() {
-        sNavigationDrawer = findViewById(R.id.navigationDrawer);
         List<MenuItem> menuItems = new ArrayList<>();
 
 
@@ -50,7 +54,7 @@ public class HomeActivity extends BaseActivity {
 
         //then add them to navigation drawer
 
-        sNavigationDrawer.setMenuItemList(menuItems);
+        binding.navigationDrawer.setMenuItemList(menuItems);
         fragmentClass = HomeFragment.class;
         try {
             fragment = (Fragment) fragmentClass.newInstance();
@@ -65,7 +69,7 @@ public class HomeActivity extends BaseActivity {
 
         //Listener to handle the menu item click. It returns the position of the menu item clicked. Based on that you can switch between the fragments.
 
-        sNavigationDrawer.setOnMenuItemClickListener(new SNavigationDrawer.OnMenuItemClickListener() {
+        binding.navigationDrawer.setOnMenuItemClickListener(new SNavigationDrawer.OnMenuItemClickListener() {
             @Override
             public void onMenuItemClicked(int position) {
                 System.out.println("Position " + position);
@@ -95,7 +99,7 @@ public class HomeActivity extends BaseActivity {
                 }
 
                 //Listener for drawer events such as opening and closing.
-                sNavigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
+                binding.navigationDrawer.setDrawerListener(new SNavigationDrawer.DrawerListener() {
 
                     @Override
                     public void onDrawerOpened() {

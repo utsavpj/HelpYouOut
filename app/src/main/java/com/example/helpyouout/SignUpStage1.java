@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class signIn extends AppCompatActivity {
+public class SignUpStage1 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +18,7 @@ public class signIn extends AppCompatActivity {
         nextButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              startActivity(new Intent(signIn.this,signin2.class));
+              startActivity(new Intent(SignUpStage1.this, SignUpStage2.class));
             }
         });
 

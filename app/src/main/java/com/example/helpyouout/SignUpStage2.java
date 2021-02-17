@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
 
-public class signin2 extends AppCompatActivity {
+public class SignUpStage2 extends AppCompatActivity {
     Spinner gender;
     TextView tvDate;
     DatePickerDialog.OnDateSetListener setListener;
@@ -34,7 +34,7 @@ public class signin2 extends AppCompatActivity {
         tvDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatePickerDialog datePickerDialog = new DatePickerDialog(signin2.this , android.R.style.Theme_Holo_Dialog_MinWidth, setListener, year, month, day);
+                DatePickerDialog datePickerDialog = new DatePickerDialog(SignUpStage2.this , android.R.style.Theme_Holo_Dialog_MinWidth, setListener, year, month, day);
                 datePickerDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                 datePickerDialog.show();
 

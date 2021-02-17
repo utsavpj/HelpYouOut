@@ -2,33 +2,34 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.helpyouout">
 
-    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <uses-permission android:name="android.permission.INTERNET" />
+
 
     <application
+        android:name="com.example.ApplicationClass"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:name="com.example.ApplicationClass"
         android:theme="@style/AppTheme">
         <activity
             android:name=".Breathe"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".signin2"
+            android:name=".SignUpStage2"
             android:screenOrientation="portrait" />
         <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".signIn"
+            android:name=".SignUpStage1"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".logIn"
+            android:name=".LoginScreen"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -11,6 +11,7 @@ import android.os.SystemClock
 import android.provider.Settings
 import android.util.DisplayMetrics
 import android.view.LayoutInflater
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
 import android.widget.Toast
@@ -19,10 +20,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.example.ApplicationClass
 import com.example.helpyouout.R
+import com.example.helpyouout.constants.AppHeart.APP_BASE_URL
+import com.example.helpyouout.constants.AppHeart.HTTP_TIMEOUT
 import com.example.helpyouout.utli.Prefs
+import com.example.helpyouout.webservice.ServiceInterface
+import com.google.gson.GsonBuilder
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import org.jetbrains.anko.AnkoLogger
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
-public abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
+public abstract class BaseActivity : AppCompatActivity(), AnkoLogger {
 
     /*
     * Lateinit vars*/
@@ -36,8 +46,7 @@ public abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        if (setContentView() > 0)
-            setContentView(setContentView())
+        setContentView(setContentView())
 
         context = this
         TAG = context.javaClass.simpleName
@@ -56,7 +65,7 @@ public abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
 
     }
 
-     var progressDialog: ProgressDialog? = null
+    var progressDialog: ProgressDialog? = null
 
 
 //    fun setToolbar(title: String, isBack: Boolean = false, titleLayView: View) {
@@ -161,6 +170,46 @@ public abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
 
     }
 
+    var apiService: ServiceInterface? = null
+
+    fun callWS(): ServiceInterface? {
+
+        val builder = OkHttpClient().newBuilder()
+
+        builder.readTimeout(HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .connectTimeout(HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .addInterceptor { chain ->
+                    val originalRequest = chain.request()
+                    val requestBuilder = originalRequest.newBuilder()
+                            .method(originalRequest.method(), originalRequest.body())
+
+                    val request = requestBuilder.build()
+                    chain.proceed(request)
+                }
+
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        builder.addInterceptor(interceptor)
+        val gson = GsonBuilder()
+                .setLenient()
+                .create()
+
+        val client = builder.build()
+        val retrofit: Retrofit
+        retrofit = Retrofit.Builder()
+                .baseUrl(APP_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
+                .build()
+
+        apiService = retrofit.create<ServiceInterface>(ServiceInterface::class.java)
+
+        return apiService
+    }
+
+
     /**
      * With custom framelayout*/
 
@@ -248,7 +297,7 @@ public abstract class BaseActivity : AppCompatActivity(),AnkoLogger {
     }
 
     //TODO abstract methods
-    abstract fun setContentView(): Int
+    abstract fun setContentView(): View
 
     abstract fun init()
 

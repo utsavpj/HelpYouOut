@@ -47,7 +47,7 @@ public class SignUpStage1 extends BaseActivity {
     @Override
     public void buttonClicks() {
 
-        binding.next.setOnClickListener(new View.OnClickListener() {
+        binding.SignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

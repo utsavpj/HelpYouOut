@@ -3,11 +3,13 @@ package com.example.helpyouout;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ public class SignUpStage2 extends AppCompatActivity {
     Spinner gender;
     TextView tvDate;
     DatePickerDialog.OnDateSetListener setListener;
+    Button previous,signUp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,5 +60,23 @@ public class SignUpStage2 extends AppCompatActivity {
         ArrayAdapter<String > arrayAdapter = new ArrayAdapter<>(this, R.layout.style_gender,arrayList);
         gender.setAdapter(arrayAdapter);
 
+
+        previous = findViewById(R.id.previous);
+        signUp = findViewById(R.id.signUp);
+
+        previous.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpStage2.this,SignUpStage1.class));
+            }
+        });
+
+        signUp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(SignUpStage2.this,HomeActivity.class));
+            }
+        });
     }
+
 }

@@ -12,20 +12,22 @@ import androidx.annotation.Nullable;
 
 import com.example.helpyouout.Breathe;
 import com.example.helpyouout.R;
+import com.example.helpyouout.databinding.FragmentHomeBinding;
+import com.example.helpyouout.databinding.FragmentMeditationBinding;
+
+import org.jetbrains.annotations.NotNull;
 
 public class MeditationFragment extends BaseFragment {
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meditation,container,false);
-        //CardView breatheCard =view.findViewById(R.id.breatheCard);
 
-        return view;
-    }
+    FragmentMeditationBinding binding;
 
+    @NotNull
     @Override
-    public int setContentView() {
-        return R.layout.fragment_meditation;
+    public View setContentView(@NotNull LayoutInflater inflater, @org.jetbrains.annotations.Nullable ViewGroup container) {
+
+        binding = FragmentMeditationBinding.inflate(inflater, container, false);
+
+        return binding.getRoot();
     }
 
     @Override

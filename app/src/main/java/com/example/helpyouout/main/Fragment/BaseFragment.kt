@@ -29,7 +29,8 @@ abstract class BaseFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        currentView = inflater.inflate(setContentView(), container, false)!!
+        currentView = setContentView(inflater, container);
+//         inflater.inflate(setContentView(inflater, container), container, false)!!
         baseActivity = activity as BaseActivity
 
         prefs = ApplicationClass.mInstance.getPrefs()!!
@@ -118,7 +119,9 @@ abstract class BaseFragment : Fragment() {
     }
 
     //TODO abstract methods
-    abstract fun setContentView(): Int
+//    abstract fun setContentView(): Int
+
+    abstract fun setContentView(inflater: LayoutInflater, container: ViewGroup?): View
 
     abstract fun init()
 

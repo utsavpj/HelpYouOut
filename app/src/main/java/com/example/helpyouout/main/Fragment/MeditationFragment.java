@@ -9,19 +9,13 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 import com.example.helpyouout.Breathe;
+import com.example.helpyouout.MusicActivity;
 import com.example.helpyouout.R;
 
 public class MeditationFragment extends BaseFragment {
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_meditation,container,false);
-        //CardView breatheCard =view.findViewById(R.id.breatheCard);
-
-        return view;
-    }
 
     @Override
     public int setContentView() {
@@ -30,11 +24,19 @@ public class MeditationFragment extends BaseFragment {
 
     @Override
     public void init() {
-        TextView textView = currentView.findViewById(R.id.breathActivity);
-        textView.setOnClickListener(new View.OnClickListener() {
+        CardView breatheCard = currentView.findViewById(R.id.breatheCard);
+        breatheCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(getActivity(), Breathe.class);
+                startActivity(intent);
+            }
+        });
+        CardView musicCard = currentView.findViewById(R.id.musicCard);
+        musicCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getActivity(), MusicActivity.class);
                 startActivity(intent);
             }
         });
@@ -42,6 +44,7 @@ public class MeditationFragment extends BaseFragment {
 
     @Override
     public void buttonClicks() {
+
 
     }
 }

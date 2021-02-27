@@ -14,4 +14,7 @@ public interface AppHeart {
 
     String PARAM_EMAIL = "email";
     String PARAM_PASSWORD = "password";
+    String PARAM_NAME = "name";
+    String PARAM_PHONE = "phone";
+    String PARAM_VERIFIED = "1";
 }

@@ -74,7 +74,7 @@ dependencies {
     implementation 'com.intuit.sdp:sdp-android:1.0.6'
     implementation 'com.joanzapata.iconify:android-iconify-material:2.2.2'
     implementation 'androidx.palette:palette:1.0.0'
-    compile 'com.github.crosswall:Android-Coverflow:release-v1.0.5'
+    implementation 'com.github.crosswall:Android-Coverflow:release-v1.0.5'
 
 
     api 'com.getbase:floatingactionbutton:1.10.1'

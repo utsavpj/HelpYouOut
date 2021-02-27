@@ -9,11 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.ApplicationClass;
+import com.example.helpyouout.LoginScreen;
 import com.example.helpyouout.R;
 import com.example.helpyouout.adapter.HomeMenuAdapter;
 import com.example.helpyouout.databinding.FragmentHomeBinding;
 import com.example.helpyouout.main.Fragment.BaseFragment;
 import com.example.helpyouout.model.HomeMenuModel;
+import com.example.helpyouout.model.UserModel;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -25,6 +28,7 @@ public class HomeFragment extends BaseFragment {
     FragmentHomeBinding binding;
     HomeMenuAdapter homeMenuAdapter;
     ArrayList<HomeMenuModel> menuItems;
+
 
 
     @NotNull
@@ -48,10 +52,23 @@ public class HomeFragment extends BaseFragment {
         homeMenuAdapter = new HomeMenuAdapter(mContext, menuItems);
         binding.gridLayout.setAdapter(homeMenuAdapter);
 
+
+        binding.user.setText(ApplicationClass.app.getUserDetails().getData().getName());
+
     }
 
     @Override
     public void buttonClicks() {
+        binding.logOut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ApplicationClass.app.removeUser();
+                goWithFinish(LoginScreen.class);
+            }
+        });
+
+
+
 
     }
 }

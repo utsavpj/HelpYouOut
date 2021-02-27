@@ -1,18 +1,13 @@
 package com.example.helpyouout.main.Fragment;
 
 import android.content.Intent;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.widget.Toast;
 
 import com.example.helpyouout.Breathe;
-import com.example.helpyouout.R;
-import com.example.helpyouout.databinding.FragmentHomeBinding;
+import com.example.helpyouout.MusicActivity;
 import com.example.helpyouout.databinding.FragmentMeditationBinding;
 
 import org.jetbrains.annotations.NotNull;
@@ -32,12 +27,19 @@ public class MeditationFragment extends BaseFragment {
 
     @Override
     public void init() {
-        TextView textView = currentView.findViewById(R.id.breathActivity);
-        textView.setOnClickListener(new View.OnClickListener() {
+        binding.breatheCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getActivity(), Breathe.class);
+                Intent intent =  new Intent(getActivity(), Breathe.class);
                 startActivity(intent);
+            }
+        });
+
+        binding.musicCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent2 =  new Intent(getActivity(), MusicActivity.class);
+                startActivity(intent2);
             }
         });
     }

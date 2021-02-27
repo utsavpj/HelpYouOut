@@ -22,4 +22,5 @@ public interface AppHeart {
     String PREF_LOGGED_IN = "loggedIn";
     String PREF_USER_DATA = "userData";
 
+
 }

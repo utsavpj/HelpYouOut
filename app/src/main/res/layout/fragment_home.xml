@@ -102,6 +102,7 @@
                 app:fab_icon="@drawable/feedback"
                 app:fab_title="Feedback" />
 
+
             <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/logOut"
                 android:layout_width="wrap_content"

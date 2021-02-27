@@ -1,6 +1,8 @@
 package com.example.helpyouout.webservice;
 
 
+import com.example.helpyouout.model.AllQuestionModel;
+import com.example.helpyouout.model.QuestionModel;
 import com.example.helpyouout.model.UserData;
 import com.example.helpyouout.model.UserModel;
 import com.google.gson.JsonElement;
@@ -26,5 +28,11 @@ public interface ServiceInterface {
 
     @POST("register")
     Call<UserModel> userRegister(@Body HashMap<String,String> requestBody);
+
+    @GET("getAllQuestion")
+    Call<AllQuestionModel> allQuestion();
+
+    @GET("getQuestion")
+    Call<QuestionModel> question();
 
 }

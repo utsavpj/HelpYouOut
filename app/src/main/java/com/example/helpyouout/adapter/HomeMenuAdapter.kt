@@ -10,7 +10,10 @@ import android.widget.TextView
 import androidx.cardview.widget.CardView
 import com.example.helpyouout.R
 import com.example.helpyouout.main.BaseActivity
+import com.example.helpyouout.main.Fragment.ChatBotFragment
 import com.example.helpyouout.main.Fragment.MeditationFragment
+import com.example.helpyouout.main.Fragment.MentalHealthListFragment
+import com.example.helpyouout.main.Fragment.ScoreCardFragment
 import com.example.helpyouout.model.HomeMenuModel
 
 class HomeMenuAdapter(val context: Context, val listOfData: ArrayList<HomeMenuModel>) : RecyclerView.Adapter<HomeMenuAdapter.VH>() {
@@ -50,14 +53,21 @@ class HomeMenuAdapter(val context: Context, val listOfData: ArrayList<HomeMenuMo
             }
 
             1 -> {
+                val scoreCardFragment = ScoreCardFragment()
+                (context as BaseActivity).replaceFragment(scoreCardFragment)
+
 
             }
 
             2 -> {
+                val chatBotFragment = ChatBotFragment();
+                (context as BaseActivity).replaceFragment(chatBotFragment)
 
             }
 
             3 -> {
+                val mentalHealthListFragment = MentalHealthListFragment()
+                (context as BaseActivity).replaceFragment(mentalHealthListFragment);
 
             }
 

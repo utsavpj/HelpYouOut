@@ -127,8 +127,13 @@ open class ApplicationClass : Application() {
         prefs?.setStringDetail(AppHeart.PREF_USER_DATA, Gson().toJson(userModel))
     }
 
-    fun getUserDetails(userModel: UserModel): UserModel? {
+    fun getUserDetails(): UserModel? {
         return Gson().fromJson(prefs?.getStringDetail(AppHeart.PREF_USER_DATA), UserModel::class.java)
+    }
+    fun removeUser(){
+        prefs?.setBooleanDetail(AppHeart.PREF_LOGGED_IN, false)
+        prefs?.setStringDetail(AppHeart.PREF_USER_DATA, null)
+
     }
 
 }

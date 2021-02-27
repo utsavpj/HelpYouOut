@@ -5,6 +5,8 @@ import android.os.Handler;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.example.ApplicationClass;
+import com.example.helpyouout.constants.AppHeart;
 import com.example.helpyouout.databinding.ActivitySplashBinding;
 import com.example.helpyouout.main.BaseActivity;
 
@@ -25,8 +27,17 @@ public class SplashActivity extends BaseActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                startActivity(new Intent(SplashActivity.this, LoginScreen.class));
+
+                boolean isLoggedIn = ApplicationClass.app.getPrefs().getBooleanDetail(AppHeart.PREF_LOGGED_IN);
+
+                if (isLoggedIn) {
+                    startActivity(new Intent(SplashActivity.this, HomeActivity.class));
+                } else {
+                    startActivity(new Intent(SplashActivity.this, LoginScreen.class));
+                }
                 finish();
+
+
             }
         }, 1500);
     }

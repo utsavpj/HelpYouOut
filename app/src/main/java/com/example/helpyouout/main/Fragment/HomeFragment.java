@@ -1,8 +1,13 @@
 package com.example.helpyouout.main.Fragment;
 
+import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.helpyouout.R;
 import com.example.helpyouout.adapter.HomeMenuAdapter;
@@ -38,11 +43,11 @@ public class HomeFragment extends BaseFragment {
         menuItems.add(new HomeMenuModel("Meditation", R.drawable.meditation));
         menuItems.add(new HomeMenuModel("Scorecard", R.drawable.scorecard));
         menuItems.add(new HomeMenuModel("Tell your problems", R.drawable.chatbot));
-        menuItems.add(new HomeMenuModel("Mental health list", R.drawable.mental_health_list_png));
+        menuItems.add(new HomeMenuModel("Mental health list", R.drawable.mentalhealth));
 
         homeMenuAdapter = new HomeMenuAdapter(mContext, menuItems);
-
         binding.gridLayout.setAdapter(homeMenuAdapter);
+
     }
 
     @Override

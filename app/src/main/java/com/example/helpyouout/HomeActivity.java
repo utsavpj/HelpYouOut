@@ -63,7 +63,7 @@ public class HomeActivity extends BaseActivity {
         }
         if (fragment != null) {
             FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.frameLayout, fragment).commit();
+            fragmentManager.beginTransaction().setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out).replace(R.id.container, fragment).commit();
         }
 
 
@@ -125,7 +125,7 @@ public class HomeActivity extends BaseActivity {
                             FragmentManager fragmentManager = getSupportFragmentManager();
                             fragmentManager.beginTransaction()
                                     .setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out)
-                                    .replace(R.id.frameLayout, fragment)
+                                    .replace(R.id.container, fragment)
                                     .commit();
 
                         }

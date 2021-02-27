@@ -1,13 +1,16 @@
 package com.example.helpyouout.adapter
 
 import android.content.Context
-import androidx.recyclerview.widget.ListAdapter
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.cardview.widget.CardView
 import com.example.helpyouout.R
+import com.example.helpyouout.main.BaseActivity
+import com.example.helpyouout.main.Fragment.MeditationFragment
 import com.example.helpyouout.model.HomeMenuModel
 
 class HomeMenuAdapter(val context: Context, val listOfData: ArrayList<HomeMenuModel>) : RecyclerView.Adapter<HomeMenuAdapter.VH>() {
@@ -16,14 +19,51 @@ class HomeMenuAdapter(val context: Context, val listOfData: ArrayList<HomeMenuMo
     }
 
     override fun onBindViewHolder(holder: VH, position: Int) {
-        var data = listOfData[position];
+        val data = listOfData[position];
+        holder.title.text = data.name;
+        holder.backgroundImg.setImageResource(data.image)
+
+        holder.cardView.setOnClickListener {
+
+            handleClickListener(position)
+
+        }
 
     }
 
-    class VH(itemview: View) : RecyclerView.ViewHolder(itemview)
+    inner class VH(itemview: View) : RecyclerView.ViewHolder(itemview) {
+        var title = itemview.findViewById<TextView>(R.id.txtTitle)
+        var backgroundImg = itemview.findViewById<ImageView>(R.id.backgroundImg)
+        var cardView = itemview.findViewById<CardView>(R.id.optionCard)
+    }
 
     override fun getItemCount(): Int {
         return listOfData.size
+    }
+
+    fun handleClickListener(index: Int) {
+        when (index) {
+
+            0 -> {
+                val meditationFragment = MeditationFragment()
+                (context as BaseActivity).replaceFragment(meditationFragment)
+            }
+
+            1 -> {
+
+            }
+
+            2 -> {
+
+            }
+
+            3 -> {
+
+            }
+
+
+        }
+
     }
 
 }

@@ -17,4 +17,9 @@ public interface AppHeart {
     String PARAM_NAME = "name";
     String PARAM_PHONE = "phone";
     String PARAM_VERIFIED = "1";
+
+    //Prefs
+    String PREF_LOGGED_IN = "loggedIn";
+    String PREF_USER_DATA = "userData";
+
 }

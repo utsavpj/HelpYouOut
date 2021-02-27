@@ -5,10 +5,12 @@ import android.content.Intent;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.ApplicationClass;
 import com.example.helpyouout.constants.AppHeart;
 import com.example.helpyouout.databinding.ActivityLogInBinding;
 import com.example.helpyouout.main.BaseActivity;
 import com.example.helpyouout.model.UserModel;
+import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -66,7 +68,14 @@ public class LoginScreen extends BaseActivity {
                         dialog.dismiss();
 
                         if (response.isSuccessful() && response.body().getStatus()) {
+
+                            /*
+                             * Save user details
+                             * */
+                            ApplicationClass.app.saveUserDetails(response.body());
+
                             startActivity(new Intent(LoginScreen.this, HomeActivity.class));
+                            finish();
                         } else {
                             Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }

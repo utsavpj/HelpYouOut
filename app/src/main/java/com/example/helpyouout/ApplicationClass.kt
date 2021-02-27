@@ -5,7 +5,10 @@ import android.content.ComponentCallbacks2
 import android.content.Context
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import com.example.helpyouout.constants.AppHeart
+import com.example.helpyouout.model.UserModel
 import com.example.helpyouout.utli.Prefs
+import com.google.gson.Gson
 import com.joanzapata.iconify.Iconify
 import com.joanzapata.iconify.fonts.MaterialModule
 import java.util.*
@@ -118,4 +121,14 @@ open class ApplicationClass : Application() {
             return app
         }
     }
+
+    fun saveUserDetails(userModel: UserModel) {
+        prefs?.setBooleanDetail(AppHeart.PREF_LOGGED_IN, true)
+        prefs?.setStringDetail(AppHeart.PREF_USER_DATA, Gson().toJson(userModel))
+    }
+
+    fun getUserDetails(userModel: UserModel): UserModel? {
+        return Gson().fromJson(prefs?.getStringDetail(AppHeart.PREF_USER_DATA), UserModel::class.java)
+    }
+
 }

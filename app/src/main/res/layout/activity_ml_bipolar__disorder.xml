@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    tools:context=".mentalhealthlist.Anger">
+
+
+
+    <Button
+        android:id="@+id/pop_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="9dp"
+                android:text="Bipolar Disorder"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Bipolar disorder is a mental health problem that mainly affects your mood. If you have bipolar disorder, you are likely to have times where you experience:\n• manic or hypomanic episodes (feeling high)\n• depressive episodes (feeling low)\n• potentially some psychotic symptoms during manic or depressed episodes"
+                android:textColor="@color/Black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Symptoms:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="•	manic episodes (feeling high)\n• hypomanic episodes (feeling high)\n• depressive episodes (feeling low)\n• mixed episodes (feeling high and low at the same time)\n• psychotic symptoms"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Solutions:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="The National Institute for Health and Care Excellence (NICE) – the organisation that produces guidelines on best practice in health care – suggests that treatment for bipolar disorder should include both talking treatments and medication."
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

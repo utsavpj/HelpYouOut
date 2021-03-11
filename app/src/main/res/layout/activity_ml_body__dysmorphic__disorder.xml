@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    tools:context=".mentalhealthlist.Anger">
+
+
+
+    <Button
+        android:id="@+id/pop_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="9dp"
+                android:text="Body Dysmorphic Disorder"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Body dysmorphic disorder (BDD) is an anxiety disorder related to body image.\n\nYou might be given a diagnosis of BDD if you:\n\n• experience obsessive worries about one or more perceived flaws in your physical appearance, and the flaw cannot be seen by others or appears very slight\n• develop compulsive behaviours and routines, such as excessive use of mirrors or picking your skin, to deal with the worries you have about the way you look."
+                android:textColor="@color/Black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Symptoms:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="If you have BDD, you experience intrusive, negative thoughts about one specific area of your body, or several areas of your body, which you think are:\n• out of proportion\n• too big or too small\n• disfigured\n• lacking symmetry."
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Solutions:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="•	cognitive behavioural therapy (CBT) – with self-help materials such as books or computer programs, via telephone, or via a series of sessions with a therapist in a one-to-one or group setting\n• medication – either on its own or combined with CBT\n• specialist services for BDD, if other treatments do not work."
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

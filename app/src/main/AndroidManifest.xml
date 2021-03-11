@@ -13,6 +13,57 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ScoreForMH"></activity>
+        <activity
+            android:name=".mentalhealthlist.Phobias"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Personality_Disorder"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Paranoia"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Obsessive_compulsive_Disorder"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Loneliness"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Hypomania_and_mania"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Hoarding"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Hearing_Voices"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Eating_Problems"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Recreational_drugs_and_Alcohol"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Dissociation_and_Dissociative_Disorder"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Depression"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Borderline_Personality"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Body_Dysmorphic_Disorder"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Bipolar_Disorder"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Anxiety_and_Panic_attacks"
+            android:theme="@style/AppTheme.PopMe" />
+        <activity
+            android:name=".mentalhealthlist.Anger"
+            android:theme="@style/AppTheme.PopMe" />
         <activity android:name=".MusicActivity" />
         <activity
             android:name=".Breathe"

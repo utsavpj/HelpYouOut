@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    tools:context=".mentalhealthlist.Anger">
+
+
+
+    <Button
+        android:id="@+id/pop_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="9dp"
+                android:text="Borderline Personality Disorder"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Borderline personality disorder (BPD) is a type of personality disorder. You might be diagnosed with a personality disorder if you have difficulties with how you think and feel about yourself and other people, and are having problems in your life as a result."
+                android:textColor="@color/Black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Symptoms:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="•	often feeling afraid, upset, unsupported or invalidated\n• family difficulties or instability, such as living with a parent who has an addiction\n• sexual, physical or emotional abuse or neglect\n• losing a parent."
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Solutions:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="•	talking therapies\n• therapeutic communities\n• medication\n• accessing treatment\n• experiences of treatment and recovery"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

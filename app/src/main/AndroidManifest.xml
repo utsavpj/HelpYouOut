@@ -12,7 +12,8 @@
         android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ScoreForMH"></activity>
+        <activity android:name=".Tell_Your_Problems"></activity>
+        <activity android:name=".ScoreForMH" />
         <activity
             android:name=".mentalhealthlist.Phobias"
             android:theme="@style/AppTheme.PopMe" />

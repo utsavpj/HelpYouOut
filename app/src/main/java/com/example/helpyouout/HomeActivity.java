@@ -88,7 +88,7 @@ public class HomeActivity extends BaseActivity {
                         break;
                     }
                     case 3: {
-                        fragmentClass = ChatBotFragment.class;
+                        fragmentClass = Tell_Your_Problems.class;
                         break;
                     }
                     case 4: {

@@ -12,7 +12,9 @@
         android:roundIcon="@drawable/logo2"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Tell_Your_Problems"></activity>
+        <activity android:name=".Edit_Profile_2"></activity>
+        <activity android:name=".Edit_Profile" />
+        <activity android:name=".Tell_Your_Problems" />
         <activity android:name=".ScoreForMH" />
         <activity
             android:name=".mentalhealthlist.Phobias"

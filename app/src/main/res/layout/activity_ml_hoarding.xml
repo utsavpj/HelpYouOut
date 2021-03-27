@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/pop_bg"
+    tools:context=".mentalhealthlist.Anger">
+
+
+
+    <Button
+        android:id="@+id/pop_close"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/round_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="9dp"
+                android:text="Hoarding"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView10"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Hoarding is acquiring or saving lots of things regardless of their value.\n\nIf you hoard, you might:\n\n• have very strong positive feelings whenever you get more items\n• feel very upset or anxious at the thought of throwing or giving things away\n• find it very hard to decide what to keep or get rid of."
+                android:textColor="@color/Black"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/textView11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Symptoms:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView12"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="• find it really difficult to discard or part with possessions, regardless of their value\n• feel distressed at the thought of discarding things, and that you need to save them\n• are unable to use parts of your home because they are very cluttered\n• are experiencing distress due to hoarding, or it's affecting other areas of your life\n• aren't hoarding because of another mental health problem, or other health condition."
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/textView13"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="Solutions:"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/textView14"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:text="•	Seeing your GP\n• Talking therapies\n• Medication"
+                android:textAlignment="textStart"
+                android:textColor="@color/Black"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

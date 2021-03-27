@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Edit_Profile_2">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="248.5dp"
+        android:layout_marginBottom="400dp"
+        android:id="@+id/edit_profile_top_bg"
+        android:src="@drawable/edit_profile_top_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        />
+
+    <ImageButton
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:id="@+id/backep2bt"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:background="@drawable/round_arrow_back"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tv_edit_profile_heading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Edit Your Profile"
+        android:textAlignment="center"
+        android:textColor="@color/Black"
+        android:textSize="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/edit_profile_top_layout2"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="90dp"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="90dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/profile_image"
+            android:id="@+id/profile_image_2"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="parth atel"
+                android:text="Parth Patel"
+                android:id="@+id/edit_profile_name_etv"
+                android:textSize="24dp"
+                android:background="@color/transparent_black_percent_100"
+                android:layout_marginTop="35dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                />
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="parthpatel@gmail.com"
+                android:textSize="18dp"
+                android:id="@+id/edit_profile_email_etv"
+                android:background="@color/transparent_black_percent_100"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/Black"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/rectangle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="350dp"
+        android:layout_marginLeft="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteX="50dp"
+        app:layout_editor_absoluteY="350dp"
+        tools:ignore="MissingConstraints"
+        android:id="@+id/edit_profile_mid"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="80dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteX="80dp"
+        app:layout_editor_absoluteY="360dp"
+        tools:layout_editor_absoluteX="80dp"
+        tools:layout_editor_absoluteY="360dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:id="@+id/edit_profile_password"
+            android:textColor="@color/Black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Mobile Number"
+            android:layout_marginTop="15dp"
+            android:id="@+id/edit_profile_mobilepn"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gender"
+            android:id="@+id/edit_profile_gender"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Birthday"
+            android:id="@+id/edit_profile_birthday"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_editor_absoluteX="210dp"
+        app:layout_editor_absoluteY="360dp"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="210dp"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="210dp"
+        tools:layout_editor_absoluteY="360dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=":"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="MissingConstraints"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="360dp"
+        android:layout_marginLeft="220dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_editor_absoluteY="360dp"
+        app:layout_editor_absoluteX="220dp">
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="***********"
+            android:background="@color/transparent_black_percent_100"
+            android:layout_marginTop="10dp"
+            android:textSize="18sp"
+            android:id="@+id/edit_profile_password_etv"
+            android:textColor="@color/Black"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0123456789"
+            android:background="@color/transparent_black_percent_100"
+            android:layout_marginTop="15dp"
+            android:id="@+id/edit_profile_mobilepn_etv"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Male"
+            android:background="@color/transparent_black_percent_100"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:id="@+id/edit_profile_gender_etv"
+            android:textColor="@color/Black"/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="01/01/2000"
+            android:id="@+id/edit_profile_birthday_etv"
+            android:background="@color/transparent_black_percent_100"
+            android:layout_marginTop="15dp"
+            android:textSize="18sp"
+            android:textColor="@color/Black"/>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edit_profile_bt_bg"
+        app:layout_editor_absoluteX="150dp"
+        app:layout_editor_absoluteY="570dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="570dp"
+        android:layout_marginLeft="150dp"
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="570dp">
+
+
+        <Button
+            android:id="@+id/edit_profile_save_bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:layout_marginLeft="20dp"
+            android:background="@color/transparent_black_percent_100"
+            />
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -9,8 +9,8 @@
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:orientation="vertical"
         android:layout_marginLeft="-10dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -55,21 +55,25 @@
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 
-
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginRight="25dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginLeft="25dp"
         android:layout_marginBottom="25dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+        android:layout_marginTop="100dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
+
+
+
             <LinearLayout
+                android:id="@+id/angerlayout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -79,346 +83,392 @@
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
-                    android:id="@+id/anger"
+                    android:id="@+id/angertv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Anger"
                     android:layout_marginStart="10dp"
+                    android:text="Anger"
                     android:textColor="@color/Black"
-                    android:textSize="20sp" />
+                    android:textSize="25sp"
+                    android:clickable="true"/>
+
             </LinearLayout>
+
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/anpalayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
 
                 <TextView
-                    android:id="@+id/Anxiety_and_Panic_attacks"
+                    android:id="@+id/anxiety_and_panic_attackstv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Anxiety and Panic attacks"
                     android:textColor="@color/Black"
-                    android:layout_marginStart="10dp"
-                    android:textSize="20sp" />
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/bdlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/bipolar_disordertv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Bipolar Disorder"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/bddlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/body_dysmorphic_disordertv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Body Dysmorphic Disorder"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/bplayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/borderline_personalitytv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Borderline Personality"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/depressionlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/depressiontv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Depression"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/daddlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/dissociation_and_dissociative_disordertv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Dissociation and Dissociative Disorder"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/rdaalayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/recreational_drugs_and_alcoholtv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Recreational Drugs And Alcohol"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/eplayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/eating_problemstv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Eating Problems"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/hvlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/hearing_voicestv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Hearing Voices"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/hoardinglayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/hoardingtv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Hoarding"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/hamlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/hypomania_and_maniatv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Hypomania and mania"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/lonelinesslayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/lonelinesstv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Loneliness"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/ocdlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/obsessive_compulsive_disordertv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Obsessive-compulsive Disorder"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/paranoialayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/paranoiatv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Paranoia"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/pdlayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/personality_disordertv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Personality Disorder"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:id="@+id/phobiaslayout">
+
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="12dp"
                     android:layout_marginTop="10dp"
 
-                    android:src="@drawable/ellipse"
-                    />
+                    android:src="@drawable/ellipse" />
 
                 <TextView
+                    android:id="@+id/phobiastv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:text="Phobias"
                     android:textColor="@color/Black"
-                    android:textSize="20sp"
-                    android:layout_marginStart="10dp"/>
+                    android:textSize="25sp" />
             </LinearLayout>
-
-
 
 
         </LinearLayout>
-
 
 
     </ScrollView>

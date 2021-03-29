@@ -40,7 +40,7 @@ public class ScoreForMH extends BaseActivity {
         final ProgressDialog dialog = ProgressDialog.show(context, "Loading", "Fetching questions...");
 
 
-        callWS().allQuestion().enqueue(new Callback<AllQuestionModel>() {
+        callWS().testQuestion().enqueue(new Callback<AllQuestionModel>() {
             @Override
             public void onResponse(Call<AllQuestionModel> call, Response<AllQuestionModel> response) {
 

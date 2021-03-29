@@ -32,6 +32,9 @@ public interface ServiceInterface {
     @GET("getAllQuestion")
     Call<AllQuestionModel> allQuestion();
 
+    @GET("getTestQuestion")
+    Call<AllQuestionModel> testQuestion();
+
     @GET("getQuestion")
     Call<QuestionModel> question();
 

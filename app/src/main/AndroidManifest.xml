@@ -72,9 +72,6 @@
             android:name=".Breathe"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".SignUpStage2"
-            android:screenOrientation="portrait" />
-        <activity
             android:name=".HomeActivity"
             android:screenOrientation="portrait" />
         <activity

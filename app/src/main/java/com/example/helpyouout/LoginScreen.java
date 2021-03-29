@@ -39,7 +39,7 @@ public class LoginScreen extends BaseActivity {
     @Override
     public void buttonClicks() {
 
-        binding.logIn.setOnClickListener(new View.OnClickListener() {
+        binding.LogIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 

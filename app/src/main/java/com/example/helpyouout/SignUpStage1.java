@@ -50,7 +50,7 @@ public class SignUpStage1 extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_signin2);
+        setContentView(R.layout.activity_sign_in);
 
         //BirthDate code
         tvDate = findViewById(R.id.tv_birthday);
@@ -101,7 +101,7 @@ public class SignUpStage1 extends BaseActivity {
     @Override
     public void buttonClicks() {
 
-        binding.SignIn.setOnClickListener(new View.OnClickListener() {
+        binding.SignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -139,7 +139,7 @@ public class SignUpStage1 extends BaseActivity {
                         dialog.dismiss();
 
                         if (response.isSuccessful() && response.body().getStatus()) {
-                            startActivity(new Intent(SignUpStage1.this, SignUpStage2.class));
+                            startActivity(new Intent(SignUpStage1.this, LoginScreen.class));
                         } else {
                             Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }

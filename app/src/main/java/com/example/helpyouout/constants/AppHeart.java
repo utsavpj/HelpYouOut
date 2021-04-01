@@ -17,6 +17,9 @@ public interface AppHeart {
     String PARAM_NAME = "name";
     String PARAM_PHONE = "phone";
     String PARAM_VERIFIED = "1";
+    String PARAM_ID="userId";
+    String PARAM_SCORE="Score";
+
 
     //Prefs
     String PREF_LOGGED_IN = "loggedIn";

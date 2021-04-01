@@ -8,11 +8,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.ApplicationClass
+import com.example.helpyouout.constants.AppHeart
 import com.example.helpyouout.main.BaseActivity
 import com.example.helpyouout.utli.Prefs
+import com.example.helpyouout.webservice.ServiceInterface
+import com.google.gson.GsonBuilder
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 
 abstract class BaseFragment : Fragment() {
 
@@ -117,6 +125,48 @@ abstract class BaseFragment : Fragment() {
     fun getCurrentTimeStamp(): Long {
         return System.currentTimeMillis() / 1000
     }
+
+    var apiService: ServiceInterface? = null
+
+    fun callWS(): ServiceInterface? {
+
+        val builder = OkHttpClient().newBuilder()
+
+        builder.readTimeout(AppHeart.HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .writeTimeout(AppHeart.HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .connectTimeout(AppHeart.HTTP_TIMEOUT, TimeUnit.SECONDS)
+                .addInterceptor { chain ->
+                    val originalRequest = chain.request()
+                    val requestBuilder = originalRequest.newBuilder()
+                            .method(originalRequest.method(), originalRequest.body())
+
+                    val request = requestBuilder.build()
+                    chain.proceed(request)
+                }
+
+        val interceptor = HttpLoggingInterceptor()
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
+
+        builder.addInterceptor(interceptor)
+        val gson = GsonBuilder()
+                .setLenient()
+                .create()
+
+        val client = builder.build()
+        val retrofit: Retrofit
+        retrofit = Retrofit.Builder()
+                .baseUrl(AppHeart.APP_BASE_URL)
+                .addConverterFactory(GsonConverterFactory.create(gson))
+                .client(client)
+                .build()
+
+        apiService = retrofit.create<ServiceInterface>(ServiceInterface::class.java)
+
+        return apiService
+    }
+
+
+
 
     //TODO abstract methods
 //    abstract fun setContentView(): Int

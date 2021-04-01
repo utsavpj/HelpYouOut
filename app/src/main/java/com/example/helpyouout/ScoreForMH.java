@@ -1,5 +1,6 @@
 package com.example.helpyouout;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
@@ -7,12 +8,17 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.Toast;
 
+import com.example.ApplicationClass;
+import com.example.helpyouout.constants.AppHeart;
 import com.example.helpyouout.databinding.ActivityScoreForMHBinding;
 import com.example.helpyouout.main.BaseActivity;
 import com.example.helpyouout.model.AllQuestionModel;
 import com.example.helpyouout.model.QuestionData;
+import com.example.helpyouout.model.SaveResult;
 
 import org.jetbrains.annotations.NotNull;
+
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -24,7 +30,7 @@ public class ScoreForMH extends BaseActivity {
     AllQuestionModel allQuestionModel;
     int index = 0;
 
-    int score = 0;
+    int score =0;
 
 
     @NotNull
@@ -70,6 +76,7 @@ public class ScoreForMH extends BaseActivity {
     public void buttonClicks() {
 
         binding.btnNext.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
 
@@ -132,6 +139,24 @@ public class ScoreForMH extends BaseActivity {
                         }
                     }).show();
 
+
+            HashMap<String, String> saveResultBody = new HashMap<>();
+            saveResultBody.put(AppHeart.PARAM_ID, ApplicationClass.app.getUserDetails().getData().getId().toString());
+            saveResultBody.put(AppHeart.PARAM_SCORE,Integer.toString(score));
+
+            callWS().saveResult(saveResultBody).enqueue(new Callback<SaveResult>() {
+                @Override
+                public void onResponse(Call<SaveResult> call, Response<SaveResult> response) {
+                    if (response.isSuccessful()) {
+                        Toast.makeText(context,"Score saved successfully",Toast.LENGTH_SHORT).show();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<SaveResult> call, Throwable t) {
+
+                }
+            });
 
             return;
         }

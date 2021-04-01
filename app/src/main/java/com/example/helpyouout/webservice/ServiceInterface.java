@@ -2,7 +2,9 @@ package com.example.helpyouout.webservice;
 
 
 import com.example.helpyouout.model.AllQuestionModel;
+import com.example.helpyouout.model.GetResult;
 import com.example.helpyouout.model.QuestionModel;
+import com.example.helpyouout.model.SaveResult;
 import com.example.helpyouout.model.UserData;
 import com.example.helpyouout.model.UserModel;
 import com.google.gson.JsonElement;
@@ -37,5 +39,11 @@ public interface ServiceInterface {
 
     @GET("getQuestion")
     Call<QuestionModel> question();
+
+    @GET("getResult")
+    Call<GetResult> result();
+
+    @POST("saveResult")
+    Call<SaveResult> saveResult(@Body HashMap<String,String> requestBody);
 
 }

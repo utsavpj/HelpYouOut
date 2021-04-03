@@ -1,14 +1,19 @@
 package com.example.helpyouout;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.ViewCompat;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
+import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.media.AudioAttributes;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -20,131 +25,183 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.helpyouout.databinding.ActivityMusicBinding;
+import com.example.helpyouout.main.BaseActivity;
+
+import org.jetbrains.annotations.NotNull;
+
+import java.io.IOException;
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
+
+import static com.example.helpyouout.constants.AppHeart.APP_BASE_URL;
 
 
-public class MusicActivity extends AppCompatActivity {
+public class MusicActivity extends BaseActivity {
+
+    ActivityMusicBinding binding;
+    MediaPlayer mediaPlayer;
+    Timer timer = new Timer();
+
+    @NotNull
+    @Override
+    public View setContentView() {
+        binding = ActivityMusicBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_music);
+    public void init() {
+        final ProgressDialog dialog = ProgressDialog.show(context, "Preparing", "Making environment ready...");
 
-//
-//        public static int[] covers = {R.drawable.peach, R.drawable.album2, R.drawable.album3, R.drawable.peach, R.drawable.album2, R.drawable.album3 };
-//        public static String[] song = {"Make War", "Shadow", "Black Parade","Make War", "Shadow", "Black Parade" };
-//
-//
-//            PagerContainer container = (PagerContainer) findViewById(R.id.pager_container);
-//            final ViewPager pager = container.getViewPager();
-//            pager.setAdapter(new MyPagerAdapter());
-//            pager.setClipChildren(false);
-//            //
-//            pager.setOffscreenPageLimit(15);
-//
-//            boolean showTransformer = getIntent().getBooleanExtra("showTransformer",true);
-//
-//
-//            if(showTransformer){
-//
-//                new CoverFlow.Builder()
-//                        .with(pager)
-//                        .scale(0.3f)
-//                        .pagerMargin(getResources().getDimensionPixelSize(R.dimen.pager_margin))
-//                        .spaceSize(0f)
-//                        .build();
-//
-//            }else{
-//                pager.setPageMargin(30);
-//            }
-//            final TextView tv_song = (TextView) findViewById(R.id.tv_song);
-//            pager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-//                @Override
-//                public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-//
-//                }
-//
-//                @Override
-//                public void onPageSelected(int position) {
-//                    tv_song.setText(song[position]);
-//                    RelativeLayout relativeLayout = (RelativeLayout) pager.getAdapter().instantiateItem(pager, 0);
-//                    ViewCompat.setElevation(relativeLayout.getRootView(), 8.0f);
-//                    Palette palette = Palette.from(drawableToBitmap(covers[position])).generate();
-//                    setStatusBar(palette);
-//                }
-//
-//                @Override
-//                public void onPageScrollStateChanged(int state) {
-//
-//                }
-//            });
-//        }
-//
-//
-//        private class MyPagerAdapter extends PagerAdapter {
-//
-//            @Override
-//            public Object instantiateItem(ViewGroup container, int position) {
-//
-//                View view = LayoutInflater.from(MusicActivity.this).inflate(R.layout.item_cover,null);
-//                ImageView imageView =  view.findViewById(R.id.image_cover);
-//                imageView.setImageDrawable(getResources().getDrawable(covers[position]));
-//                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-//                container.addView(view);
-//                return view;
-//            }
-//
-//            @Override
-//            public void destroyItem(ViewGroup container, int position, Object object) {
-//                container.removeView((View)object);
-//            }
-//
-//            @Override
-//            public int getCount() {
-//                return covers.length;
-//            }
-//
-//            @Override
-//            public boolean isViewFromObject(View view, Object object) {
-//                return (view == object);
-//            }
-//        }
-//        public void setStatusBar(Palette palette){
-//            Window window = getWindow();
-//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-//                Palette.Swatch vibrant = palette.getDominantSwatch();
-//                if (vibrant != null) {
-//                    window.setStatusBarColor(vibrant.getRgb());
-//                }
-//
-//            }
-//        }
-//
-//
-//        public Bitmap drawableToBitmap(int id) {
-//            Bitmap bitmap = null;
-//            Drawable drawable = getResources().getDrawable(id);
-//            if (drawable instanceof BitmapDrawable) {
-//                BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
-//                if(bitmapDrawable.getBitmap() != null) {
-//                    return bitmapDrawable.getBitmap();
-//                }
-//            }
-//
-//            if(drawable.getIntrinsicWidth() <= 0 || drawable.getIntrinsicHeight() <= 0) {
-//                bitmap = Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888); // Single color bitmap will be created of 1x1 pixel
-//            } else {
-//                bitmap = Bitmap.createBitmap(drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight(), Bitmap.Config.ARGB_8888);
-//            }
-//
-//            Canvas canvas = new Canvas(bitmap);
-//            drawable.setBounds(0, 0, canvas.getWidth(), canvas.getHeight());
-//            drawable.draw(canvas);
-//            return bitmap;
-//        }
-//
-//
+        mediaPlayer = new MediaPlayer();
+        mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        mediaPlayer.setAudioAttributes(new AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_MUSIC)
+                .setUsage(AudioAttributes.USAGE_MEDIA)
+                .build());
+
+        try {
+            mediaPlayer.setDataSource(APP_BASE_URL + "static/" + "RelaxingMusic.mp3");
+            mediaPlayer.prepareAsync();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        mediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                dialog.dismiss();
+                binding.btnPlayPause.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_play_circle_filled_24));
+                binding.mediaplayerSeekbar.setMax(mediaPlayer.getDuration());
+
+                binding.tvFullTime.setText(getMinutesFromDuration(mediaPlayer.getDuration()));
+            }
+        });
+
+        mediaPlayer.setOnBufferingUpdateListener(new MediaPlayer.OnBufferingUpdateListener() {
+            @Override
+            public void onBufferingUpdate(MediaPlayer mediaPlayer, int i) {
+                System.out.println("Buffering: " + i);
+            }
+        });
+    }
+
+    @Override
+    public void buttonClicks() {
+        binding.btnPlayPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                toggleMusic();
+            }
+        });
 
     }
+
+    void toggleMusic() {
+        if (mediaPlayer.isPlaying()) {
+            mediaPlayer.pause();
+
+            binding.btnPlayPause.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_play_circle_filled_24));
+        } else {
+            mediaPlayer.start();
+            updateTime();
+            binding.btnPlayPause.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_pause_circle_filled_24));
+        }
+    }
+
+    void stopMusic() {
+        try {
+            mediaPlayer.stop();
+            mediaPlayer.reset();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        try {
+            mediaPlayer.pause();
+            binding.btnPlayPause.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_play_circle_filled_24));
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        try {
+            if (!mediaPlayer.isPlaying()) {
+                mediaPlayer.start();
+                binding.btnPlayPause.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_pause_circle_filled_24));
+            }
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        try {
+            stopMusic();
+            binding.btnPlayPause.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_baseline_play_circle_filled_24));
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+        } finally {
+            mediaPlayer = null;
+        }
+    }
+
+    @NotNull
+    @Override
+    public String getLoggerTag() {
+        return "Streaming music";
+    }
+
+    void updateTime() {
+
+        if (timer == null) {
+            timer = new Timer();
+        }
+
+        timer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (mediaPlayer != null && mediaPlayer.isPlaying()) {
+                            binding.tvCurrentTime.post(new Runnable() {
+                                @Override
+                                public void run() {
+                                    binding.tvCurrentTime.setText(getMinutesFromDuration(mediaPlayer.getCurrentPosition()));
+                                }
+                            });
+                        } else {
+                            timer.cancel();
+                            timer.purge();
+                            timer = null;
+                        }
+                    }
+                });
+            }
+        }, 0, 1000);
+    }
+
+    String getMinutesFromDuration(int duration) {
+        return String.format("%02d:%02d",
+                TimeUnit.MILLISECONDS.toMinutes(duration),
+                TimeUnit.MILLISECONDS.toSeconds(duration) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(duration))
+        );
+    }
+
 }

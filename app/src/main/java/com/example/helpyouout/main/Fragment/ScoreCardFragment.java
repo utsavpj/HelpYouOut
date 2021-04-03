@@ -1,22 +1,22 @@
 package com.example.helpyouout.main.Fragment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.ApplicationClass;
-import com.example.helpyouout.R;
 import com.example.helpyouout.ScoreForMH;
-import com.example.helpyouout.constants.AppHeart;
-import com.example.helpyouout.databinding.FragmentHomeBinding;
 import com.example.helpyouout.databinding.FragmentScorecardBinding;
-import com.example.helpyouout.model.AllQuestionModel;
-import com.example.helpyouout.model.Data;
-import com.example.helpyouout.model.GetResult;
+import com.example.helpyouout.model.GetResultModel;
+import com.example.helpyouout.model.ScoreItems;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -37,21 +37,30 @@ public class ScoreCardFragment extends BaseFragment {
 
     @Override
     public void init() {
+        final ProgressDialog dialog = ProgressDialog.show(mContext, "Loading", "Logging you in...");
 
-        callWS().result().enqueue(new Callback<GetResult>() {
+        callWS().getResults(ApplicationClass.mInstance.getUserDetails().getData().getId().toString()).enqueue(new Callback<GetResultModel>() {
             @Override
-            public void onResponse(Call<GetResult> call, Response<GetResult> response) {
-                if (response.isSuccessful() && response.body().getStatus()){
-                    binding.testScore.setText(response.body().getData().getScore());
+            public void onResponse(Call<GetResultModel> call, Response<GetResultModel> response) {
+                dialog.dismiss();
+
+                if (response.isSuccessful() && response.body().getStatus()) {
+
+                    List<ScoreItems> listOfScores = response.body().getData();
+
+                    if (!listOfScores.isEmpty()) {
+                        binding.testScore.setText(listOfScores.get(listOfScores.size() - 1).getScore().toString());
+                    }
+
                 }
             }
 
             @Override
-            public void onFailure(Call<GetResult> call, Throwable t) {
-
+            public void onFailure(Call<GetResultModel> call, Throwable t) {
+                dialog.dismiss();
             }
         });
-     
+
 
     }
 

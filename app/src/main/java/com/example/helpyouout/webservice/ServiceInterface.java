@@ -2,20 +2,18 @@ package com.example.helpyouout.webservice;
 
 
 import com.example.helpyouout.model.AllQuestionModel;
-import com.example.helpyouout.model.GetResult;
+import com.example.helpyouout.model.GetResultModel;
 import com.example.helpyouout.model.QuestionModel;
 import com.example.helpyouout.model.SaveResult;
-import com.example.helpyouout.model.UserData;
 import com.example.helpyouout.model.UserModel;
-import com.google.gson.JsonElement;
 
 import java.util.HashMap;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 /**
  * Created by Harsh on 29/12/17.
@@ -41,7 +39,7 @@ public interface ServiceInterface {
     Call<QuestionModel> question();
 
     @GET("getResult")
-    Call<GetResult> result();
+    Call<GetResultModel> getResults(@Query(value = "userId", encoded = true) String userId);
 
     @POST("saveResult")
     Call<SaveResult> saveResult(@Body HashMap<String,String> requestBody);

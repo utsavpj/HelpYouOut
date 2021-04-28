@@ -19,8 +19,11 @@ data class UserData(
 	@field:SerializedName("name")
 	val name: String? = null,
 
-	@field:SerializedName("mobile")
-	val mobile: String? = null,
+	@field:SerializedName("gender")
+	val gender: String? = null,
+
+	@field:SerializedName("dob")
+	val dob: String? = null,
 
 	@field:SerializedName("verified")
 	val verified: Int? = null,

@@ -34,7 +34,7 @@ public class Breathe extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_breathe);
 
-        breathImage = findViewById(R.id.breathDemo);
+        breathImage = findViewById(R.id.breatheImage);
         lastTimeUsed= findViewById(R.id.lasttimeused);
         breathCounter=findViewById(R.id.breathCounter);
         breathToday = findViewById(R.id.breathtoday);
@@ -127,5 +127,6 @@ public class Breathe extends AppCompatActivity {
                         }.start();
                     }
                 }).start();
+
     }
     }

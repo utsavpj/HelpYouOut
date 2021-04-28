@@ -50,10 +50,13 @@ public class ScoreCardFragment extends BaseFragment {
 
                     if (!listOfScores.isEmpty()) {
                         binding.testScore.setText(listOfScores.get(listOfScores.size() - 1).getScore().toString());
+
+
+                        }
                     }
 
                 }
-            }
+
 
             @Override
             public void onFailure(Call<GetResultModel> call, Throwable t) {

@@ -14,6 +14,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -85,7 +86,11 @@ public class SignUpStage1 extends BaseActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.style_gender, arrayList);
         gender.setAdapter(arrayAdapter);
 
+
+
     }
+
+
 
     @NotNull
     @Override
@@ -101,13 +106,17 @@ public class SignUpStage1 extends BaseActivity {
     @Override
     public void buttonClicks() {
 
-        binding.SignUp.setOnClickListener(new View.OnClickListener() {
+        binding.signUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 String email = binding.emailToSignUp.getText().toString().trim();
                 String password = binding.passwordToSignUp.getText().toString().trim();
                 String name = binding.name.getText().toString().trim();
+                String dob = binding.tvBirthday.getText().toString().trim();
+
+
+
 
                 if (email.isEmpty()) {
                     Toast.makeText(context, "Please enter email", Toast.LENGTH_SHORT).show();
@@ -128,7 +137,8 @@ public class SignUpStage1 extends BaseActivity {
                 signinBody.put(AppHeart.PARAM_EMAIL, email);
                 signinBody.put(AppHeart.PARAM_PASSWORD, password);
                 signinBody.put(AppHeart.PARAM_NAME,name);
-                signinBody.put(AppHeart.PARAM_PHONE,"1234567890");
+                signinBody.put(AppHeart.PARAM_DOB,dob);
+                signinBody.put(AppHeart.PARAM_GENDER,gender.getSelectedItem().toString());
                 signinBody.put(AppHeart.PARAM_VERIFIED,"1");
 
                 final ProgressDialog dialog = ProgressDialog.show(context, "Loading", "Signing you in...");
@@ -140,6 +150,7 @@ public class SignUpStage1 extends BaseActivity {
 
                         if (response.isSuccessful() && response.body().getStatus()) {
                             startActivity(new Intent(SignUpStage1.this, LoginScreen.class));
+                            finish();
                         } else {
                             Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
                         }

@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <vector
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:aapt="http://schemas.android.com/aapt"
-    android:width="300dp"
-    android:height="185dp"
+    android:width="@dimen/_30sdp"
+    android:height="@dimen/_18sdp"
     android:viewportWidth="300"
     android:viewportHeight="185"
     >

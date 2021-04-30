@@ -20,6 +20,7 @@
     <string name="tell_your_problems">Tell Your Problems</string>
     <string name="mental_health_list">Mental Health List</string>
     <string name="hello">hello</string>
+    <string name="resultTexts">If Score &lt; 0 = Bad mental health \n 1 &lt; Score &lt; 50 = moderate mental health score &gt;= 50 = Good mental health</string>
 
 
 </resources>

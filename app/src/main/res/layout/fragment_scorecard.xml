@@ -2,80 +2,78 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-<androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:background="@color/colorButtonGrey"
-        app:cardCornerRadius="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-
-        <TextView
-            android:layout_width="wrap_content"
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20sp"
-            android:layout_marginTop="20sp"
-            android:fontFamily="@font/poppins"
-            android:text="Score:"
+            android:layout_marginTop="30dp"
+            android:background="@color/colorButtonGrey"
+            app:cardCornerRadius="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20sp"
+                android:layout_marginTop="20sp"
+                android:fontFamily="@font/poppins"
+                android:text="Score:"
+                android:textColor="@color/Black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/testScore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="100dp"
+                android:layout_marginTop="70dp"
+                android:fontFamily="@font/poppins"
+                android:text="50"
+                android:textColor="@color/colorPrimary"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+
+        </androidx.cardview.widget.CardView>
+
+        <Button
+            android:id="@+id/measureHealth"
+            android:layout_width="186dp"
+            android:layout_height="53dp"
+            android:layout_marginTop="@dimen/_10sdp"
+            android:background="@drawable/customize_button"
+            android:text="Measure Health"
             android:textColor="@color/Black"
-            android:textSize="40dp"
-            android:textStyle="bold" />
-
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
         <TextView
-            android:id="@+id/testScore"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView4"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginTop="70dp"
-            android:fontFamily="@font/poppins"
-            android:text="50"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="@string/resultTexts"
             android:textColor="@color/colorPrimary"
-            android:textSize="40dp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/_20sdp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/measureHealth" />
 
 
-
-    </androidx.cardview.widget.CardView>
-
-    <Button
-        android:id="@+id/measureHealth"
-        android:layout_width="186dp"
-        android:layout_height="53dp"
-        android:layout_marginTop="@dimen/_10sdp"
-        android:background="@drawable/customize_button"
-        android:text="Measure Health"
-        android:textColor="@color/Black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cardView" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="64dp"
-        android:text="If Score < 0 = Bad mental health
-                        1 < Score < 50 = moderate mental health
-                         score >= 50 = Good mental health"
-        android:textColor="@color/colorPrimary"
-        android:textSize="20dp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.107"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/measureHealth" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -4,8 +4,8 @@ import android.app.DatePickerDialog;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -46,12 +46,16 @@ public class SignUpStage1 extends BaseActivity {
     Spinner gender;
     TextView tvDate;
     DatePickerDialog.OnDateSetListener setListener;
-    Button previous, signUp;
+
+    @NotNull
+    @Override
+    public View setContentView() {
+        binding = ActivitySignInBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
+    }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+    public void init() {
 
         //BirthDate code
         tvDate = findViewById(R.id.tv_birthday);
@@ -86,21 +90,6 @@ public class SignUpStage1 extends BaseActivity {
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, R.layout.style_gender, arrayList);
         gender.setAdapter(arrayAdapter);
 
-
-
-    }
-
-
-
-    @NotNull
-    @Override
-    public View setContentView() {
-        binding = ActivitySignInBinding.inflate(getLayoutInflater());
-        return binding.getRoot();
-    }
-
-    @Override
-    public void init() {
     }
 
     @Override
@@ -114,8 +103,6 @@ public class SignUpStage1 extends BaseActivity {
                 String password = binding.passwordToSignUp.getText().toString().trim();
                 String name = binding.name.getText().toString().trim();
                 String dob = binding.tvBirthday.getText().toString().trim();
-
-
 
 
                 if (email.isEmpty()) {
@@ -133,17 +120,17 @@ public class SignUpStage1 extends BaseActivity {
                     return;
                 }
 
-                HashMap<String, String > signinBody = new HashMap<>();
-                signinBody.put(AppHeart.PARAM_EMAIL, email);
-                signinBody.put(AppHeart.PARAM_PASSWORD, password);
-                signinBody.put(AppHeart.PARAM_NAME,name);
-                signinBody.put(AppHeart.PARAM_DOB,dob);
-                signinBody.put(AppHeart.PARAM_GENDER,gender.getSelectedItem().toString());
-                signinBody.put(AppHeart.PARAM_VERIFIED,"1");
+                HashMap<String, String> signUpBody = new HashMap<>();
+                signUpBody.put(AppHeart.PARAM_EMAIL, email);
+                signUpBody.put(AppHeart.PARAM_PASSWORD, password);
+                signUpBody.put(AppHeart.PARAM_NAME, name);
+                signUpBody.put(AppHeart.PARAM_DOB, dob);
+                signUpBody.put(AppHeart.PARAM_GENDER, gender.getSelectedItem().toString());
+                signUpBody.put(AppHeart.PARAM_VERIFIED, "1");
 
-                final ProgressDialog dialog = ProgressDialog.show(context, "Loading", "Signing you in...");
+                final ProgressDialog dialog = ProgressDialog.show(context, "Loading", "Creating your account...");
 
-                callWS().userRegister(signinBody).enqueue(new Callback<UserModel>() {
+                callWS().userRegister(signUpBody).enqueue(new Callback<UserModel>() {
                     @Override
                     public void onResponse(Call<UserModel> call, Response<UserModel> response) {
                         dialog.dismiss();
@@ -152,7 +139,7 @@ public class SignUpStage1 extends BaseActivity {
                             startActivity(new Intent(SignUpStage1.this, LoginScreen.class));
                             finish();
                         } else {
-                            Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, response.body().getFailMessage(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
@@ -168,7 +155,6 @@ public class SignUpStage1 extends BaseActivity {
 
             }
         });
-
 
 
     }

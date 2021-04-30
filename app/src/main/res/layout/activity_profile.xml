@@ -4,9 +4,11 @@
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/edit_profile"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".EditProfile">
+        android:background="#EFF3FF"
+        tools:context=".ProfileScreen">
 
 
         <ImageView
@@ -21,7 +23,7 @@
             />
 
         <ImageButton
-            android:id="@+id/backep2bt"
+            android:id="@+id/backep1bt"
             android:layout_width="35dp"
             android:layout_height="35dp"
             android:layout_marginLeft="20dp"
@@ -39,7 +41,7 @@
             android:layout_alignParentEnd="true"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="Edit Your Profile"
+            android:text="Your Profile"
             android:textAlignment="center"
             android:textColor="@color/Black"
             android:textSize="24dp"
@@ -48,7 +50,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <LinearLayout
-            android:id="@+id/edit_profile_top_layout2"
+            android:id="@+id/edit_profile_top_layout1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="30dp"
@@ -60,7 +62,7 @@
             tools:layout_editor_absoluteY="90dp">
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/profile_image_2"
+                android:id="@+id/profile_image_1"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:src="@drawable/profile_image" />
@@ -70,27 +72,22 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
-
-                <EditText
-                    android:id="@+id/edit_profile_name_etv"
+                <TextView
+                    android:id="@+id/edit_profile_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginTop="35dp"
-                    android:background="@color/transparent_black_percent_100"
-                    android:hint="Name"
+                    android:text="Parth Patel"
                     android:textColor="@color/Black"
                     android:textSize="24dp" />
 
-                <EditText
-                    android:id="@+id/edit_profile_email_etv"
+                <TextView
+                    android:id="@+id/edit_profile_email"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
-                    android:editable="false"
-                    android:focusable="false"
-                    android:background="@color/transparent_black_percent_100"
-                    android:hint="xyz@gmail.com"
+                    android:text="parthpatel@gmail.com"
                     android:textColor="@color/Black"
                     android:textSize="18dp" />
 
@@ -102,8 +99,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
-            android:layout_marginStart="@dimen/_30sdp"
-            android:layout_marginEnd="@dimen/_30sdp"
+            android:layout_marginStart="@dimen/_50sdp"
+            android:layout_marginEnd="@dimen/_50sdp"
             android:background="@drawable/rectangle"
             android:orientation="horizontal"
             android:padding="@dimen/_20sdp">
@@ -118,7 +115,6 @@
                     android:id="@+id/edit_profile_gender"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:text="Gender"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
@@ -127,7 +123,7 @@
                     android:id="@+id/edit_profile_birthday"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginTop="15dp"
                     android:text="Birthday"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
@@ -145,7 +141,6 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
                     android:text=":"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
@@ -153,7 +148,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_30sdp"
+                    android:layout_marginTop="15dp"
                     android:text=":"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
@@ -162,40 +157,24 @@
 
             <LinearLayout
                 android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_marginStart="@dimen/_10sdp"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_10sdp"
+                android:layout_weight="1"
                 android:orientation="vertical">
 
-                <Spinner
-                    android:id="@+id/gender"
+                <TextView
+                    android:id="@+id/edit_profile_gender_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/ic_gender"
-                    android:popupBackground="@color/White"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toEndOf="@+id/tv_birthday"
-                    app:layout_constraintTop_toTopOf="@+id/tv_birthday" />
+                    android:text="Male"
+                    android:textColor="@color/Black"
+                    android:textSize="18sp" />
 
-                <!--<EditText
-                    android:id="@+id/edit_profile_gender_etv"
+                <TextView
+                    android:id="@+id/edit_profile_birthday_tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:background="@color/transparent_black_percent_100"
-                    android:text="Male"
-                    android:textColor="@color/Black"
-                    android:textSize="18sp" />-->
-
-                <EditText
-                    android:focusable="false"
-                    android:editable="false"
-                    android:id="@+id/edit_profile_birthday_etv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="@dimen/_13sdp"
-                    android:background="@color/transparent_black_percent_100"
                     android:text="01/01/2000"
                     android:textColor="@color/Black"
                     android:textSize="18sp" />
@@ -206,18 +185,15 @@
         </LinearLayout>
 
 
-
         <androidx.appcompat.widget.AppCompatButton
             android:backgroundTint="#DDE5FF"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="@dimen/_50sdp"
-            android:id="@+id/edit_profile_save_bt"
+            android:id="@+id/edit_profile_bt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Save" />
-
+            android:text="Edit Profile" />
 
     </RelativeLayout>
-
 </layout>

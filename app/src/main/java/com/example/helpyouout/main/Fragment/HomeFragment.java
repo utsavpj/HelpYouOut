@@ -1,25 +1,17 @@
 package com.example.helpyouout.main.Fragment;
 
 import android.content.Intent;
-import android.graphics.Rect;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.ApplicationClass;
-import com.example.helpyouout.Breathe;
-import com.example.helpyouout.Edit_Profile;
+import com.example.helpyouout.ProfileScreen;
 import com.example.helpyouout.LoginScreen;
 import com.example.helpyouout.R;
 import com.example.helpyouout.adapter.HomeMenuAdapter;
 import com.example.helpyouout.databinding.FragmentHomeBinding;
-import com.example.helpyouout.main.Fragment.BaseFragment;
 import com.example.helpyouout.model.HomeMenuModel;
-import com.example.helpyouout.model.UserModel;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -73,7 +65,7 @@ public class HomeFragment extends BaseFragment {
         binding.profile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent =  new Intent(getActivity(), Edit_Profile.class);
+                Intent intent =  new Intent(getActivity(), ProfileScreen.class);
                 startActivity(intent);
             }
         });

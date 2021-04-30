@@ -77,7 +77,7 @@ public class LoginScreen extends BaseActivity {
                             startActivity(new Intent(LoginScreen.this, HomeActivity.class));
                             finish();
                         } else {
-                            Toast.makeText(context, response.body().getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, response.body().getFailMessage(), Toast.LENGTH_SHORT).show();
                         }
 
                     }
